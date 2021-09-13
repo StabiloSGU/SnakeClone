@@ -1,0 +1,17 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/MSX MSX2 - Metal Gear 2 Solid Snake MSX2 - Solid Snake.png-ec5de72200ec2dfd134b81def3c20e23.res"
+group_file="res://Assets/snake_atlas.png"
+valid=true
+[deps]
+
+
+source_file="res://Assets/MSX MSX2 - Metal Gear 2 Solid Snake MSX2 - Solid Snake.png"
+dest_files=[ "res://.import/MSX MSX2 - Metal Gear 2 Solid Snake MSX2 - Solid Snake.png-ec5de72200ec2dfd134b81def3c20e23.res" ]
+
+[params]
+
+atlas_file="res://Assets/snake_atlas.png"
+import_mode=0

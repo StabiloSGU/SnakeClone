@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/death_screams_4.wav-fefbfca2ef842cbf2b0c57a1e0a95f71.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/death_screams_4.wav"
+dest_files=[ "res://.import/death_screams_4.wav-fefbfca2ef842cbf2b0c57a1e0a95f71.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

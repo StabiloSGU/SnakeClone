@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Font/flipside/flipside.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://StartMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/bg.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/Sounds/itemused.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "NewGameTextAnimation"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:custom_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.278431, -0.25, 0, 0.25, 0, 0.596078, -0.25, 0, 0.25, 0, 0.278431, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 1.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:custom_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.717647, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:custom_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.745098, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:custom_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeOut"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:custom_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.278431, 0.843137, 0.745098, 1 ), Color( 0.278431, 0.843137, 0.745098, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label2:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.219608, 0.717647, 0.745098, 1 ), Color( 0.219608, 0.717647, 0.745098, 0 ) ]
+}
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="GUI" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background_menu" type="Sprite" parent="GUI"]
+modulate = Color( 1, 1, 1, 0.509804 )
+position = Vector2( 477.077, 66.5881 )
+scale = Vector2( 1.94343, 1.85212 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="GUI"]
+margin_left = 78.1151
+margin_top = 110.873
+margin_right = 494.115
+margin_bottom = 153.873
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.278431, 0.717647, 0.745098, 1 )
+text = "STIFF SNAK"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI"]
+margin_left = 78.0
+margin_top = 170.0
+margin_right = 505.0
+margin_bottom = 327.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/default_color = Color( 0.278431, 0.843137, 0.745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="GUI"]
+margin_left = 78.0
+margin_top = 520.0
+margin_right = 508.0
+margin_bottom = 565.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.278431, 0.717647, 0.745098, 1 )
+text = "Got it! Start battle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/Label2"]
+autoplay = "NewGameTextAnimation"
+anims/NewGameTextAnimation = SubResource( 3 )
+
+[node name="FadeOutAnimationPlayer" type="AnimationPlayer" parent="GUI"]
+anims/FadeOut = SubResource( 4 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="mouse_entered" from="GUI/Label2" to="." method="_on_Label2_mouse_entered"]
+[connection signal="mouse_exited" from="GUI/Label2" to="." method="_on_Label2_mouse_exited"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_AudioStreamPlayer2D_finished"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cabled-mess__boom-c-01.wav-1c16b91e464f5aadd2d6f0237e59d287.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/cabled-mess__boom-c-01.wav"
+dest_files=[ "res://.import/cabled-mess__boom-c-01.wav-1c16b91e464f5aadd2d6f0237e59d287.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
